@@ -1,0 +1,29 @@
+<h1>Reader Card Details</h1>
+
+<table>
+  <tr>
+    <td><strong>User:</strong></td>
+    <td><%= @reader_card.user.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Library:</strong></td>
+    <td><%= @reader_card.library.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Books:</strong></td>
+    <td>
+      <% if @reader_card.books.any? %>
+        <ul>
+          <% @reader_card.books.each do |book| %>
+            <li><%= book.title %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No books yet</p>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<p><%= link_to 'Edit', edit_reader_card_path(@reader_card) %></p>
+<p><%= link_to 'Back', reader_cards_path %></p>

@@ -1,0 +1,18 @@
+<h1><%= @user.name %></h1>
+
+<% if @user.image.attached?%>
+  <%= image_tag @user.image.variant(resize_to_limit: [150, 150]).processed%>
+<% end %>
+
+<p>Address: <%= @user.address %></p>
+
+<p>Email: <%= @user.email %></p>
+
+<p>Number: <%= @user.number %></p>
+
+<p>Age: <%= @user.age %></p>
+
+<%= link_to "Download User Report", downloader_pdf_user_path(@user) %>
+<%= link_to 'List user', users_path %>
+<%= link_to 'Edit user', edit_user_registration_path%>
+<%= button_to "Destroy this user", @user, method: :delete %>

@@ -1,0 +1,50 @@
+<h1>All users</h1>
+</p><%= link_to 'Back', home_path %></p>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name<%= link_to "↑↓", users_path(sort_by: (@sort_by == "name_asc" ? "name_desc" : "name_asc"),name: @name, age: @age, count: @count ), class: "fa fa-sort" %><%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :name, @name, placeholder: "Search by name" %>
+        <% if @name.present? %>
+          <%= link_to "×", users_path, class: "remove-search" %>
+        <% end %>
+        <%= submit_tag "Search" %>
+      <% end %></th>
+    <th>Age<%= link_to "↑↓", users_path(sort_by: (@sort_by == "age_asc" ? "age_desc" : "age_asc"), name: @name, age: @age, count: @count ), class: "fa fa-sort" %><%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :age, @age, placeholder: "Search by age" %>
+        <% if @age.present? %>
+          <%= link_to "×", users_path, class: "remove-search" %>
+        <% end %>
+        <%= submit_tag "Search" %>
+      <% end %></th>
+<!--    <th>Reader Card ID(s)</th>-->
+    <th>Books Count<%= link_to "↑↓", users_path(sort_by: (@sort_by == "books_asc" ? "books_desc" : "books_asc"), name: @name, age: @age, count: @count ), class: "fa fa-sort" %><%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :count, @count, placeholder: "Search by count" %>
+        <% if @count.present? %>
+          <%= link_to "×", users_path, class: "remove-search" %>
+        <% end %>
+        <%= submit_tag "Search" %>
+      <% end %></th>
+    <th>Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user[:id] %></td>
+      <td><%= user[:name] %></td>
+      <td><%= user[:age] %></td>
+<!--      <td><%#= user.reader_card_id %></td>-->
+      <td><%= user[:books_count] %></td>
+      <td><%= link_to "link", user_path(user) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<!--<ul>-->
+  <%# @users.each do |user| %>
+<!--    <li><%#= link_to user.name, user_path(user) %></li>-->
+  <%# end %>
+<!--</ul>-->
+<%#= link_to 'New user', new_user_registration_path %>

@@ -1,0 +1,32 @@
+<h1>Edit Book</h1>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<%= form_with(model: @book, url: book_path(@book), method: :put) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :published_date %>
+    <%= form.date_field :published_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :library_id %>
+    <%= form.collection_select :library_id, @libraries, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reader_card_id %>
+    <%= form.collection_select :reader_card_id, @reader_cards, :id, :name_with_library %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

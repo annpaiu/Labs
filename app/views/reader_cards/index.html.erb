@@ -1,0 +1,28 @@
+<h1>Reader Cards</h1>
+</p><%= link_to 'Back', home_path %></p>
+<table>
+  <thead>
+  <tr>
+    <th>User</th>
+    <th>Library</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @reader_cards.each do |reader_card| %>
+    <tr>
+      <td><%= reader_card.user.name %></td>
+      <td><%= reader_card.library.name %></td>
+      <td>
+        <%= link_to 'Show', reader_card %>
+        <%= link_to 'Edit', edit_reader_card_path(reader_card) %>
+        <%= button_to 'Destroy', reader_card, method: :delete%>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reader Card', new_reader_card_path %>

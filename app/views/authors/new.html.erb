@@ -1,0 +1,24 @@
+<h1>New author</h1>
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+<%= form_with(model: @author, url: authors_path) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :birthdate %><br>
+    <%= form.date_field :birthdate,{ value: @birthdate,
+                                     class: 'form-control',
+                                     required: true,
+                                     format: '%d.%m.%Y' } %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

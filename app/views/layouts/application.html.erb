@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LibraryApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application" %>
+
+  </head>
+  <script>
+      setTimeout(function() {
+          $('.alert').fadeOut('slow');
+      }, 3000);
+  </script>
+  <body>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var alerts = document.querySelectorAll('.alert');
+          alerts.forEach(function(alert) {
+              setTimeout(function() {
+                  alert.style.display = 'none';
+              }, 3000);
+          });
+      });
+  </script>
+
+  <div class="user-info">
+    <% if user_signed_in? %>
+      <div class="user-email">Welcome <%= current_user.email %></div>
+      <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "sign-out-btn" %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path %>
+    <% end %>
+  </div>
+  <div class="header">
+    <%= link_to 'Home', home_path %>
+    <%= link_to 'List author', authors_path %>
+    <%= link_to 'List books', books_path %>
+    <%= link_to 'List reader_card', reader_cards_path %>
+    <%= link_to 'List user', users_path %>
+    <%= link_to 'List genre', genres_path %>
+    <%= link_to 'List library', libraries_path %>
+  </div>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<h1>Libraries</h1>
+</p><%= link_to 'Back', home_path %></p>
+<!--<ul>-->
+  <%# @libraries.each do |library| %>
+<!--    <li>-->
+      <%#= link_to library.name, library_path(library) %>
+<!--    </li>-->
+  <%# end %>
+<!--</ul>-->
+
+<%#= form_tag libraries_path, method: :get do %>
+<!--  <label for="sort_by">Sort by:</label>-->
+  <%#= select_tag :sort_by, options_for_select(['', 'books_asc', 'books_desc']) %>
+  <%#= submit_tag "Sort" %>
+<%# end %>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name <%= link_to "↑↓", libraries_path(sort_by: (@sort_by == "name_asc" ? "name_desc" : "name_asc"),name: @name), class: "fa fa-sort" %><%= form_tag libraries_path, method: :get do %>
+        <%= text_field_tag :name, @name, placeholder: "Search by name" %>
+        <% if @name.present? %>
+          <%= link_to "×", libraries_path, class: "remove-search" %>
+        <% end %>
+        <%= submit_tag "Search" %>
+      <% end %></th>
+    <th>Book count <%= link_to "↑↓", libraries_path(sort_by: (@sort_by == "books_asc" ? "books_desc" : "books_asc"), name: @name), class: "fa fa-sort" %></th>
+    <th>Genre count <%= link_to "↑↓", libraries_path(sort_by: (@sort_by == "genres_asc" ? "genres_desc" : "genres_asc"), name: @name), class: "fa fa-sort" %></th>
+    <th>Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @libraries.each do |library| %>
+    <tr>
+      <td><%= library.id %></td>
+      <td><%= library.name %></td>
+      <td><%= library.books_count %></td>
+      <td><%= library.genres_count %></td>
+      <td><%= link_to "link", library_path(library) %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= paginate @libraries %>
+<%= link_to 'Download CSV', downloader_csv_path(format: :csv) %>
+<%= link_to 'Download PDF', downloader_pdf_path(format: :pdf) %>
+<br>
+<%= link_to 'New Libraries', new_library_path %>

@@ -1,0 +1,5 @@
+<h1><%= @genre.name %></h1>
+
+<%= link_to 'List genre', genres_path %>
+<%= link_to 'Edit genre', edit_genre_path%>
+<%= button_to "Destroy this genre", @genre, method: :delete %>

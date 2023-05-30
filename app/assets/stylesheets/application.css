@@ -1,0 +1,510 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+/* Загальні стилі */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стилі для таблиць */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #D2B48C;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Стилі для кнопок */
+button, input[type="submit"], input[type="reset"] {
+    background-color: #D2B48C;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #DEB887;
+}
+
+/* Стилі для посилань */
+a {
+    color: #D2B48C;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #DEB887;
+    text-decoration: underline;
+}
+
+/* Стилі для заголовків */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #D2B48C;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Стилі для блоку з повідомленнями */
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #DEB887;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+/* Стилі для блоку з привітаннями */
+.welcome {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #D2B48C;
+    text-align: center;
+}
+
+/* Стилі для кнопки виходу */
+.sign-out {
+    float: right;
+}
+
+/* Анимації */
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover, a:hover {
+    transform: scale(1.05);
+}
+
+.alert-success, .alert-danger {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Медіа-запити */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+    h1 {
+        font-size: 20px;
+    }
+
+    th, td {
+        font-size: 14px;
+    }
+}
+
+/* Додані стилі і анімації */
+
+/* Покращені стилі для таблиці */
+table {
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f5f5f5;
+    color: #555555;
+    font-weight: 600;
+}
+
+/* Покращені стилі для кнопок */
+button, input[type="submit"], input[type="reset"] {
+    background-color: #D2B48C;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #DEB887;
+}
+
+/* Покращені стилі для посилань */
+a {
+    color: #D2B48C;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #DEB887;
+}
+
+/* Покращені стилі для заголовків*/
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+
+/* Покращені стилі для блоку з повідомленнями */
+.alert {
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #DEB887;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+/* Покращені стилі для блоку з привітаннями */
+.welcome {
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Покращені стилі для кнопки виходу */
+.sign-out {
+    float: right;
+    font-weight: 600;
+}
+
+/* Покращені стилі для всього body */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #555555;
+    line-height: 1.5;
+}
+
+/* Анімація для таблиці */
+.table-fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+
+/* Медіа-запити */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    button, input[type="submit"], input[type="reset"] {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Стилі для блоку з формою */
+.form {
+    margin-bottom: 20px;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form input[type="text"],
+.form input[type="password"],
+.form select,
+.form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.form input[type="submit"] {
+    background-color: #D2B48C;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #DEB887;
+}
+
+/* Стилі для блоку з коментарями */
+.comments {
+    margin-bottom: 20px;
+}
+
+.comments h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.comment .author {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.comment .date {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 4px;
+}
+
+.comment .body {
+    font-size: 14px;
+}
+
+/* Стилі для форми додавання коментаря */
+.comment-form {
+    margin-bottom: 20px;
+}
+
+.comment-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.comment-form input[type="text"],
+.comment-form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.comment-form input[type="submit"] {
+    background-color: #D2B48C;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.comment-form input[type="submit"]:hover {
+    background-color: #DEB887;
+}
+
+/* Стилі для блоку зі списком тегів*/
+.tags {
+    margin-bottom: 20px;
+}
+
+.tags ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tags li {
+    display: inline-block;
+    margin-right: 10px;
+}
+/* Стилі для блоку з кнопкою і почтою юзера */
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.user-email {
+    margin-right: 10px;
+}
+
+.sign-out-btn {
+    background-color: #D2B48C;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.sign-out-btn:hover {
+    background-color: #DEB887;
+}
+
+/* Стили для шапки */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D2B48C;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.header a:hover {
+    text-decoration: underline;
+}
+
+.welcome-message {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    line-height: 1.5;
+    margin-top: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-box {
+    width: 400px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.fa-sort {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #ccc;
+}
+
+.fa-sort:hover {
+    color: #333;
+}
+
+.fa-sort.asc {
+    transform: rotate(180deg);
+}
+
+.fa-sort.desc {
+    transform: rotate(0deg);
+}

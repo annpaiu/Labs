@@ -1,0 +1,31 @@
+<h1><%= @library.name %></h1>
+
+<% if @library.image.attached?%>
+<%= image_tag @library.image.variant(resize_to_limit: [150, 150]).processed%>
+<% end %>
+<p><strong>Address:</strong> <%= @library.location %></p>
+
+<p><strong>Year of creation:</strong> <%= @library.year_of_creation %></p>
+
+<p><strong>Street address:</strong> <%= @library.street_address %></p>
+
+<p><strong>Zip code:</strong> <%= @library.zip_code %></p>
+
+
+<h2>Books</h2>
+<ul>
+  <% @books.each do |book| %>
+    <li><%= book.title %></li>
+  <% end %>
+</ul>
+
+<h2>Reader Cards user name</h2>
+<ul>
+  <% @reader_cards.each do |reader_card| %>
+    <li><%= reader_card.user.name %></li>
+  <% end %>
+</ul>
+<%= link_to "Download Library Report", downloader_pdf_library_path(@library) %>
+<%= link_to 'List library', libraries_path %>
+<%= link_to 'Edit library', edit_library_path%>
+<%= button_to "Destroy this library", @library, method: :delete %>

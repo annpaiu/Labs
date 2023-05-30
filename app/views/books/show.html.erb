@@ -1,0 +1,26 @@
+<h1><%= @book.title %></h1>
+
+<p><strong>Published Date:</strong> <%= @book.published_date %></p>
+
+<p><strong>Library:</strong> <%= @book.library.name %></p>
+
+<p><strong>Reader Card:</strong> <%= @book.reader_card.user.name%></p>
+
+<h2>Authors</h2>
+<ul>
+  <% @authors.each do |author| %>
+    <li><%= author.name %></li>
+  <% end %>
+</ul>
+
+<h2>Genres</h2>
+<ul>
+  <% @genres.each do |genre| %>
+    <li><%= genre.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'List books', books_path %>
+<%= link_to 'Edit', edit_book_path(@book) %>
+<%= button_to "Destroy this book", @book, method: :delete %>
+
